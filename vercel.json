@@ -11,7 +11,7 @@
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "auth-system/vercel-server.js" },
+      { "src": "/api/v1/(.*)", "dest": "auth-system/vercel-server.js" },
       { "src": "/(.*)", "dest": "pos/dist/$1" }
     ]
   }

@@ -1,5 +1,5 @@
+import app from './src/index'; // Adjust path as necessary
 import { createServer } from 'http';
-import app from './src/index'; // Adjust the path to your `index.ts`
 
 const server = createServer(app);
 

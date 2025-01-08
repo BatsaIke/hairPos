@@ -37,17 +37,31 @@ app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/orders', orderRoutes);
 app.use('/api/v1/notifications', notificationRoutes);
 
+// Compute the absolute path to the frontend (pos/dist)
+const posPath = path.resolve(__dirname, '../../pos/dist');
+console.log('Frontend Path:', posPath);
+
+
 // Serve static assets in production
 if (isProduction) {
-  const __dirname = path.resolve();
-  // Serve static files from Vite's build folder
-  app.use(express.static(path.join(__dirname, 'pos', 'dist')));
+  // Debug log
+  console.log('Static middleware registered:', posPath);
 
-  // Serve the index.html file for any unknown routes
+  // Serve static files
+  app.use(express.static(posPath));
+
+  app.use((req, res, next) => {
+    console.log(`Static Middleware: ${req.url}`);
+    next();
+  });
+
+  // Fallback route for SPA
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'pos', 'dist', 'index.html'));
+    console.log('Fallback route triggered for:', req.url);
+    res.sendFile(path.join(posPath, 'index.html'));
   });
 }
+
 
 // Error Handling
 app.use(errorHandler);

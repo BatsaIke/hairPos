@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "pos/dist/**",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "auth-system/vercel-server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "auth-system/vercel-server.js" },
+      { "src": "/(.*)", "dest": "pos/dist/$1" }
+    ]
+  }
+  

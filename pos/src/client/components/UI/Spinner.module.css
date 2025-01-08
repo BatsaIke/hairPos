@@ -1,0 +1,39 @@
+/* Spinner.module.css */
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add padding for smaller screens */
+  text-align: center; /* Ensure proper alignment for text */
+}
+
+.spinnerText {
+  font-size: 1.2rem; /* Default font size */
+  color: #333;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Tablet View */
+@media (max-width: 768px) {
+  .spinnerContainer {
+      padding: 15px; /* Adjust padding for tablets */
+  }
+
+  .spinnerText {
+      font-size: 1rem; /* Slightly smaller font size */
+  }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  .spinnerContainer {
+      padding: 10px; /* Reduce padding further for small screens */
+  }
+
+  .spinnerText {
+      font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+}

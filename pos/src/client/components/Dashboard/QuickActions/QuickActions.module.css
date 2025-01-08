@@ -1,0 +1,77 @@
+.quickActions {
+  background: linear-gradient(135deg, #003973 0%, #E5E5BE 100%); /* Darker gradient shades */
+  padding: 20px;
+  border-radius: 12px; /* Smooth rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  text-align: center;
+  color: white; /* White text for contrast */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quickActions:hover {
+  transform: translateY(-3px); /* Slight hover lift */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 20px; /* Slightly larger for a modern look */
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #b0c4de; /* Subtle light blue for contrast */
+}
+
+.button {
+  display: block;
+  width: 100%;
+  max-width: 300px; /* Restrict max width for better layout */
+  margin: 10px auto; /* Center buttons */
+  padding: 12px;
+  border: none;
+  border-radius: 8px; /* More rounded corners for a modern look */
+  background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%); /* Modern gradient button */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #dd2476 0%, #ff512f 100%);
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Responsive Styling */
+
+@media (max-width: 768px) {
+  .quickActions {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quickActions {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

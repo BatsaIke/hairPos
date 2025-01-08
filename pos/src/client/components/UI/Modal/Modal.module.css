@@ -1,0 +1,73 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #1e1e1e; 
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  text-align: center;
+  color: #f1f1f1; /* Light text for the modal body */
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444; /* Subtle separator */
+  padding-bottom: 10px;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  color: #f20505 !important; /* White text for the title */
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #f1f1f1; /* White text for the close button */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #ff4d4d; /* Red highlight for hover effect */
+  transform: scale(1.2); /* Slightly enlarge the "X" */
+}
+
+.modalBody {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #ddd; /* Softer text for the body */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .modalContent {
+      width: 90%; /* Adjust modal width for smaller screens */
+      padding: 15px;
+  }
+
+  .modalTitle {
+      font-size: 1.2rem;
+  }
+
+  .closeButton {
+      font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,145 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #003973 0%, #E5E5BE 100%); /* Darker modern gradient */
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for modern depth */
+    border-radius: 8px;
+  }
+  .header:hover{
+    cursor: pointer;
+color: #dd2476;
+  }
+  .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #f3f4f6; /* Subtle off-white for better contrast */
+  }
+  
+  .searchBar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text color for visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.searchInput::placeholder {
+    color: #888888; /* Subtle placeholder color */
+}
+
+.searchInput:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Highlighted input */
+    transform: scale(1.02);
+    outline: none;
+}
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  border: none;
+  font-size: 14px;
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark text color for visibility */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: #888888; /* Subtle placeholder color */
+}
+
+.searchInput:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Highlighted input */
+  transform: scale(1.02);
+  outline: none;
+  text-align: center;
+}
+
+  
+ 
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoutButton {
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%); /* Modern gradient red button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .logoutButton:hover {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styling */
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Stack layout on smaller screens */
+      align-items: flex-start;
+      padding: 15px;
+    }
+  
+    .logo h1 {
+      font-size: 20px; /* Adjust font size */
+    }
+  
+    .searchBar {
+      margin: 10px 0; /* Add spacing */
+      width: 100%;
+    }
+  
+    .searchInput {
+      max-width: 100%;
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .logoutButton {
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      padding: 10px;
+    }
+  
+    .logo h1 {
+      font-size: 18px;
+    }
+  
+    .logoutButton {
+      padding: 6px 12px;
+    }
+  }
+  

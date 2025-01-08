@@ -1,0 +1,38 @@
+.notificationPage {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #f1f1f1;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #28a745;
+  }
+  
+  .notificationList {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .notificationItem {
+    background: #2c2c2c;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .timestamp {
+    color: #aaa;
+    font-size: 0.8rem;
+  }
+  

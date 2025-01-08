@@ -1,0 +1,225 @@
+.salesScreen {
+  padding: 20px;
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  min-height: 100vh;
+  color: #f1f1f1;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Category bar styles */
+.categoryBar {
+  grid-column: 1 / -1; /* spans the entire width (both columns) */
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: #2c2c2c;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.categoryItem {
+  background-color: #444;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categoryItem:hover {
+  background-color: #555;
+}
+
+.categoryItemActive {
+  background-color: #555;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Cart container */
+.cart {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  background: #292929;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal & Payment overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.payButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.paymentStatus {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.barcodeScanner {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.barcodeInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #6c757d;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.barcodeInput:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+}
+
+.barcodeInput::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.scanIcon {
+  font-size: 2rem;
+  color: #000000;
+  transition: color 0.3s;
+}
+
+.barcodeInput:focus + .scanIcon {
+  color: #000000;
+
+}
+
+/* Responsive: Tablet */
+@media (max-width: 768px) {
+  .barcodeScanner {
+    gap: 0.8rem;
+  }
+
+  .barcodeInput {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .scanIcon {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 480px) {
+  .barcodeInput {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .scanIcon {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* Responsive: Tablet */
+@media (max-width: 768px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .cart {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

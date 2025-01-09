@@ -1,16 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
-import passport from '../utils/passportConfig';
-import connectDB from '../config/db';
-import sessionConfig from '../config/sessionConfig';
-import corsConfig from '../middleware/corsConfig';
-import loggingMiddleware from '../middleware/logging';
-import errorHandler from '../middleware/errorHandler';
-import routes from '../routes';
-import productRoutes from '../routes/productRoutes';
-import orderRoutes from '../routes/orderRoutes';
-import notificationRoutes from '../routes/notificationRoutes';
+import passport from './utils/passportConfig';
+import connectDB from './config/db';
+import sessionConfig from './config/sessionConfig';
+import corsConfig from './middleware/corsConfig';
+import loggingMiddleware from './middleware/logging';
+import errorHandler from './middleware/errorHandler';
+import routes from './routes';
+import productRoutes from './routes/productRoutes';
+import orderRoutes from './routes/orderRoutes';
+import notificationRoutes from './routes/notificationRoutes';
 import path from 'path';
 
 dotenv.config();

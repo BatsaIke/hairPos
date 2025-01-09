@@ -6,8 +6,8 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "outDir": "./dist",
-      "typeRoots": ["./node_modules/@types", "./src/types"]
+      "typeRoots": ["./node_modules/@types", "types"]
     },
-    "include": ["src"]
+    "include": ["src", "types", "routes", "models", "middleware", "controllers", "config", "utils"]
   }
   

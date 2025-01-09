@@ -1,26 +1,25 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styles from './Products.module.css';
 import { Product, useProducts } from '../../../components/context/ProductContext';
+
+import ProductTable from './ProductTable';
 import Pagination from '../../../components/UI/pagination/Pagination';
-import AddProductModal from '../../../components/Product/AddProducts/AddProductModal'; 
+import AddProductModal from '../../../components/Product/AddProducts/AddProductModal';
 
 const Products: React.FC = () => {
   const { products, fetchAllProducts, deleteProduct } = useProducts();
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
-  const [productToEdit, setProductToEdit] = useState<Product | null>(null); // Explicitly typed
+  const [productToEdit, setProductToEdit] = useState<Product | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
-  const [filterDate, setFilterDate] = useState(''); 
-
+  const [filterDate, setFilterDate] = useState('');
 
   useEffect(() => {
-    fetchAllProducts(); 
+    fetchAllProducts();
   }, [fetchAllProducts]);
 
-  // Calculate total number of products
   const totalProducts = products.length;
 
-  // Calculate total value by category
   const totalValueByCategory = useMemo(() => {
     return products.reduce((acc, product) => {
       if (!product.category) return acc;
@@ -29,7 +28,10 @@ const Products: React.FC = () => {
     }, {} as Record<string, number>);
   }, [products]);
 
-  // Filter products by date if a filter is set
+  const overallTotalValue = useMemo(() => {
+    return Object.values(totalValueByCategory).reduce((sum, value) => sum + value, 0);
+  }, [totalValueByCategory]);
+
   const filteredProducts = useMemo(() => {
     if (!filterDate) return products;
     const filterTimestamp = new Date(filterDate).getTime();
@@ -39,19 +41,16 @@ const Products: React.FC = () => {
     });
   }, [filterDate, products]);
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const paginatedProducts = filteredProducts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // Reset to first page when filterDate changes
   useEffect(() => {
     setCurrentPage(1);
   }, [filterDate]);
 
-  // Handle delete product
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
@@ -64,17 +63,17 @@ const Products: React.FC = () => {
   };
 
   const handleOpenAddProduct = () => {
-    setProductToEdit(null); // Reset product to edit for adding
+    setProductToEdit(null);
     setIsAddProductOpen(true);
   };
 
   const handleOpenEditProduct = (product: Product) => {
-    setProductToEdit(product); // Set product to edit
+    setProductToEdit(product);
     setIsAddProductOpen(true);
   };
 
   const handleCloseAddProduct = () => {
-    setProductToEdit(null); // Reset product on close
+    setProductToEdit(null);
     setIsAddProductOpen(false);
   };
 
@@ -104,57 +103,24 @@ const Products: React.FC = () => {
         <ul>
           {Object.entries(totalValueByCategory).map(([category, value]) => (
             <li key={category}>
-              {category}: ${value.toFixed(2)}
+              {category}: ₵{value.toFixed(2)}
             </li>
           ))}
         </ul>
+        <div className={styles.overallTotal}>
+          <strong>Overall Total: ₵{overallTotalValue.toFixed(2)}</strong>
+        </div>
       </section>
 
       <button className={styles.addButton} onClick={handleOpenAddProduct}>
         Add Product
       </button>
 
-      {paginatedProducts.length === 0 ? (
-        <div className={styles.noProducts}>
-          No products for the selected date.
-        </div>
-      ) : (
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>In Stock</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedProducts.map((product) => (
-              <tr key={product._id}>
-                <td>{product.name}</td>
-                <td>{product.category || 'Uncategorized'}</td>
-                <td>${product.regularPrice.toFixed(2)}</td>
-                <td>{product.inStock}</td>
-                <td>
-                  <button
-                    className={styles.editButton}
-                    onClick={() => handleOpenEditProduct(product)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className={styles.deleteButton}
-                    onClick={() => handleDelete(product._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      <ProductTable
+        products={paginatedProducts}
+        onEdit={handleOpenEditProduct}
+        onDelete={handleDelete}
+      />
 
       <Pagination
         currentPage={currentPage}
@@ -165,7 +131,7 @@ const Products: React.FC = () => {
       <AddProductModal
         isOpen={isAddProductOpen}
         onClose={handleCloseAddProduct}
-        productToEdit={productToEdit} // Pass the product to edit
+        productToEdit={productToEdit}
       />
     </div>
   );

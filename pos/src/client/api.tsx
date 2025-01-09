@@ -1,7 +1,10 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { useAuth } from './components/context/AuthProvider';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+const baseURL = import.meta.env.PROD
+  ? 'https://hairpos.onrender.com/api/v1'
+  : 'http://localhost:5000/api/v1';
+
 
 const api = axios.create({
   baseURL,

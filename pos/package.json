@@ -1,13 +1,13 @@
 {
-  "name": "joculdetectivului",
+  "name": "mordernpos",
   "version": "1.0.0",
   "type": "module",
-  "description": "Folder-game ecommerce & gameplay",
+  "description": "POS mordern",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonluca/vite-typescript-ssr-react"
   },
-  "author": "Daniel Anca & Mubbasher Yasin",
+  "author": "Batsa Issace",
   "license": "MIT",
   "scripts": {
     "killport": "fuser -k 7456/tcp",

@@ -1,4 +1,3 @@
-
 import React, { ReactNode } from 'react';
 import styles from './ReusableModal.module.css';
 
@@ -7,6 +6,7 @@ interface ReusableModalProps {
   onClose: () => void;
   title?: string;
   children: ReactNode;
+  isDarkMode?: boolean;
 }
 
 const ReusableModal: React.FC<ReusableModalProps> = ({
@@ -14,11 +14,16 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
   onClose,
   title,
   children,
+  isDarkMode = false,
 }) => {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalBackdrop}>
+    <div
+      className={`${styles.modalBackdrop} ${
+        isDarkMode ? styles['dark-mode'] : ''
+      }`}
+    >
       <div className={styles.modalContent}>
         <div className={styles.modalHeader}>
           <h2>{title || 'Modal Title'}</h2>

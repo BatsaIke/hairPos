@@ -1,48 +1,66 @@
 .modalBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContent {
+  background: var(--modal-bg, #fff);
+  width: 95%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+  color: var(--modal-text, #000);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--modal-header-bg, #f5f5f5);
+  padding: 1rem;
+  color: var(--modal-header-text, #000);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--modal-close-btn, #000);
+}
+
+.modalBody {
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: var(--modal-body-text, #000);
+}
+
+.dark-mode {
+  --modal-bg: #1c1c1c;
+  --modal-text: #f5f5f5;
+  --modal-header-bg: #333;
+  --modal-header-text: #f5f5f5;
+  --modal-close-btn: #f5f5f5;
+  --modal-body-text: #ddd;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  
-  .modalContent {
-    background: #fff;
-    width: 95%;
-    max-width: 600px;
-    border-radius: 8px;
-    overflow: hidden;
-    animation: fadeIn 0.3s ease-in-out;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .modalHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 1rem;
-  }
-  
-  .closeButton {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .modalBody {
-    padding: 1rem;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-  
-  @keyframes fadeIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
+}
